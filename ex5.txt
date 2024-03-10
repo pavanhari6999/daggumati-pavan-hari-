@@ -1,0 +1,67 @@
+Experiment:5 AM – DSB - SC MODULATION AND DEMODULATION
+
+% AM-DSB-SC Modulation and Demodulation with 6 subplots
+% Parameters
+Ac = 1; 
+Am = 0.5;
+fc = 1000;
+fm = 100;
+fs = 10000;
+t = 0:1/fs:1;
+
+% Message signal
+m_t = Am*sin(2*pi*fm*t);
+
+% Carrier signal
+c_t = Ac*sin(2*pi*fc*t);
+
+% AM-DSB-SC modulation
+s_t = m_t .* c_t;
+
+% Demodulation
+r_t = s_t .* c_t;
+
+% Low-pass filter
+[b, a] = butter(6, 2*fm/fs);    % 6th-order Butterworth LPF
+demodulated_signal = filter(b, a, r_t);
+
+% Plotting
+figure;
+
+% Original Message Signal
+subplot(3,2,1);
+plot(t, m_t);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Original Message Signal');
+
+% Carrier Signal
+subplot(3,2,2);
+plot(t, c_t);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Carrier Signal');
+
+% Modulated Signal
+subplot(3,2,3);
+plot(t, s_t);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('AM-DSB-SC Modulated Signal');
+
+% Demodulated Signal
+subplot(3,2,4);
+plot(t, r_t);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Demodulated Signal (Before LPF)');
+
+% Demodulated Signal after LPF
+subplot(3,2,[5,6]);
+plot(t, demodulated_signal);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Demodulated Signal (After LPF)');
+
+% Adjusting subplot layout
+sgtitle('AM-DSB-SC Modulation and Demodulation');

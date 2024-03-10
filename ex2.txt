@@ -1,0 +1,107 @@
+Experiment-2: Title: SIGNAL OPERATIONS
+
+Addition Operation
+
+subplot(2,2,1);
+x1 = linspace(-10, 10);
+y1 = sin(x1);
+plot(x1,y1);
+title('Subplot1: x(t)')
+grid on;
+
+subplot(2,2,2);
+x2 = linspace(-3, 3);
+y2 = cos(x2);
+plot(x2,y2);
+title('Subplot2: y(t)')
+grid on;
+
+subplot(2,2,[3,4]);
+x3 = x1 + x2;
+y3 = y1 + y2;
+plot(x3,y3);
+title('Subplot3: z(t) = x(t) + y(t)')
+grid on;
+
+
+
+
+Signal Subtraction
+
+subplot(2,2,1);
+x1 = linspace(-10, 10);
+y1 = sin(x1);
+plot(x1,y1);
+title('Subplot1: x(t)')
+grid on;
+
+subplot(2,2,2);
+x2 = linspace(-3, 3);
+y2 = cos(x2);
+plot(x2,y2);
+title('Subplot2: y(t)')
+grid on;
+
+subplot(2,2,[3,4]);
+x3 = x1 - x2;
+y3 = y1 - y2;
+plot(x3,y3);
+title('Subplot3: z(t) = x(t) + y(t)')
+grid on;
+
+
+
+Signal Multiplication
+
+subplot(2,2,1);
+x1 = linspace(-10, 10);
+y1 = sin(x1);
+plot(x1,y1);
+title('Subplot1: x(t)')
+grid on;
+
+subplot(2,2,2);
+x2 = linspace(-3, 3);
+y2 = cos(x2);
+plot(x2,y2);
+title('Subplot2: y(t)')
+grid on;
+
+subplot(2,2,[3,4]);
+x3 = x1 .* x2;
+y3 = y1 .* y2;
+plot(x3,y3);
+title('Subplot3: z(t) = x(t) + y(t)')
+grid on;
+
+
+
+
+Signal Shifting:
+
+t = 0 : 12;
+x = [0 1 2 1 0 1 2 1 0 1 2 1 0 ];
+
+subplot(3, 1, 1)
+plot(t, x)
+title('Simple Signal')
+xlabel('Time')
+ylabel('Amplitude')
+grid on;
+axis([-2 12 0 4])
+
+subplot(3, 1, 2)
+plot(t + 2, x)
+title('Shifting by Addition')
+xlabel('Time')
+ylabel('Amplitude')  % Corrected 'ylabeI' to 'ylabel'
+grid on;
+axis([-2 12 0 4])
+
+subplot(3, 1, 3)  % Corrected to 3, 1, 3 for the third subplot
+plot(t - 2, x)
+title('Shifting by Subtraction')
+xlabel('Time')  % Removed extra text '/The Engineering Projects'
+ylabel('Amplitude')
+grid on;
+axis([-2 12 0 4])

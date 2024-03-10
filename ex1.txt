@@ -1,0 +1,65 @@
+1. Experiment Title: Generation of Basic Signals
+
+(a). Program for the generation of UNIT impulse signal
+
+n = -10:10;
+impulse_signal = (n == 0);
+stem(n, impulse_signal);
+xlabel('Time');
+ylabel('Amplitude');
+title('Unit Impulse Signal');
+
+
+(b). Program for the generation of UNIT step signal 
+
+n = -10:10;
+step = (n >= 0);
+stem(n, step);
+xlabel('Time');
+ylabel('Amplitude');
+title('Unit Step Signal');
+
+(c).Program for the generation of unit RAMP signal 
+
+n = -10:10;
+ramp = max(0, n);
+stem(n, ramp);
+xlabel('Time');
+ylabel('Amplitude');
+title('Unit Ramp Signal');
+
+(d).Program for the generation of Exponential signal
+
+fs = 1000 ;
+ts = 1 / fs ;
+e = 0 : ts : 4 ;
+a = exp (e);
+plot(e,a)
+xlabel('Time');
+ylabel('Amplitude');
+title('Exponential Signal');
+grid on;
+
+(e). Program for Continuous time signal 
+
+fs = 1000 ;
+ts = 1 / fs ;
+t = 0 : ts : 1 ;
+f1 = 10 ;
+a = sin ( 2 * pi * f1 * t );
+plot(t,a)
+xlabel("time");
+ylabel("value");
+title("Continous Time Signal");
+
+(f). Program for Discrete time cosine signal : 
+
+n = 0:100;
+A = 1;
+f = 0.1;
+phi = pi/4;
+x = A * cos(2 * pi * f * n + phi);
+stem(n, x);
+xlabel('Time Index (n)');
+ylabel('Amplitude');
+title('Discrete-time Cosine Signal');
